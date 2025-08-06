@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/dashboard.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-dark text-light">
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-black shadow-sm">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">CryptoBoard</a>
+      <div class="ms-auto">
+        <span class="me-3">👋 Welcome,</span>
+        <a href="signin.html" class="btn btn-outline-light btn-sm">Logout</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Dashboard -->
+  <div class="container py-4">
+    <div class="row g-4">
+      
+      <!-- BTC Chart -->
+      <div class="col-md-6">
+        <div class="card bg-gradient border-0 shadow">
+          <div class="card-body">
+            <h5 class="card-title">📈 BTC Live Chart</h5>
+            <canvas id="btcChart" height="100"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- Coinbase Stats -->
+      <div class="col-md-6">
+        <div class="card bg-gradient border-0 shadow">
+          <div class="card-body">
+            <h5 class="card-title">🪙 Coinbase Balance</h5>
+            <p class="card-text">BTC: 0.23</p>
+            <p class="card-text">ETH: 1.87</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bitget Positions -->
+      <div class="col-md-6">
+        <div class="card bg-gradient border-0 shadow">
+          <div class="card-body">
+            <h5 class="card-title">💼 Bitget Positions</h5>
+            <p class="card-text">Long BTC/USD - 3.5x</p>
+            <p class="card-text">Short ETH/USD - 5x</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Settings -->
+      <div class="col-12">
+        <div class="card bg-gradient border-0 shadow">
+          <div class="card-body">
+            <h5 class="card-title">⚙️ Account Settings</h5>
+            <p class="card-text">Change Password | Update Email</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    // Dummy BTC Chart
+    const ctx = document.getElementById('btcChart').getContext('2d');
+    const btcChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['10am', '12pm', '2pm', '4pm', '6pm', '8pm'],
+        datasets: [{
+          label: 'BTC Price (USD)',
+          data: [28700, 28950, 28890, 29030, 29200, 29350],
+          borderColor: 'rgba(255, 206, 86, 1)',
+          tension: 0.3
+        }]
+      },
+      options: {
+        plugins: {
+          legend: { labels: { color: 'white' } }
+        },
+        scales: {
+          x: { ticks: { color: 'white' } },
+          y: { ticks: { color: 'white' } }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
+

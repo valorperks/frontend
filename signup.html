@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Sign Up Form</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="Login Form Template" name="keywords">
+  <meta content="Login Form Template" name="description">
+
+  <!-- Favicon -->
+  <link href="img/favicon.ico" rel="icon">
+
+  <!-- Stylesheet -->
+  <link href="signup.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="wrapper login-1">
+    <div class="container">
+      <div class="col-left">
+        <div class="login-text">
+          <form id="signupForm">
+            <p>
+              <label>Username<span>*</span></label>
+              <input type="text" id="username" placeholder="Username" required />
+            </p>
+            <p>
+              <label>Email<span>*</span></label>
+              <input type="email" id="email" placeholder="Email" required />
+            </p>
+            <p>
+              <label>Password<span>*</span></label>
+              <input type="password" id="password" placeholder="Password" required />
+            </p>
+            <p>
+              <input type="submit" value="Sign Up" />
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div id="toast" class="toast">Signup successful! Redirecting...</div>
+  </div>
+  <script>
+    document.getElementById('signupForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const username = document.getElementById('username').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
+
+      try {
+        const response = await fetch('https://cryptoland-backend.onrender.com/api/users/signup', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username, email, password })
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          localStorage.setItem('userId', data.userId);
+
+          // Show toast
+          const toast = document.getElementById('toast');
+          toast.classList.add('show');
+
+          // Fade out form
+          document.querySelector('.wrapper').classList.add('fade-out');
+
+          // Redirect after delay
+          setTimeout(() => {
+            window.location.href = 'add-card.html';
+          }, 2000);
+        } else {
+          alert('Signup failed: ' + data.error);
+        }
+      } catch (err) {
+        console.error('Error:', err);
+        alert('Something went wrong. Try again.');
+      }
+    });
+  </script>
+</body>
+
+</html>

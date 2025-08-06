@@ -1,0 +1,202 @@
+/* Reset & Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #0f0f0f;
+  color: #f5f5f5;
+  line-height: 1.6;
+}
+
+/* Wrapper */
+.wrapper.login-1 {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: linear-gradient(to right, #1f1f1f, #2c2c2c);
+}
+
+/* Container */
+.container {
+  display: flex;
+  max-width: 900px;
+  margin: auto;
+  background-color: #1a1a1a;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 255, 198, 0.2);
+}
+
+/* Left Column */
+.col-left {
+  flex: 1;
+  background-color: #00ffc6;
+  color: #000;
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-text h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.login-text p {
+  margin-bottom: 20px;
+}
+
+.login-text .btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #000;
+  color: #00ffc6;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
+.login-text .btn:hover {
+  background-color: #333;
+}
+
+/* Right Column */
+.col-right {
+  flex: 1;
+  padding: 40px;
+}
+
+.signup h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.signup form p {
+  margin-bottom: 15px;
+}
+
+.signup label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.signup input[type="text"],
+.signup input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  background-color: #2a2a2a;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+}
+
+.signup input[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  background-color: #00ffc6;
+  color: #000;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.signup input[type="submit"]:hover {
+  background-color: #00d6a3;
+}
+
+.signup a {
+  color: #00ffc6;
+  text-decoration: underline;
+  font-size: 0.9rem;
+}
+
+/* Style for login form container */
+.login-form {
+  padding: 20px;
+}
+
+.login-form h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.login-form form p {
+  margin-bottom: 15px;
+}
+
+.login-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  background-color: #2a2a2a;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+}
+
+.login-form input[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  background-color: #00ffc6;
+  color: #000;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.login-form input[type="submit"]:hover {
+  background-color: #00d6a3;
+}
+
+.login-form a {
+  color: #00ffc6;
+  text-decoration: underline;
+  font-size: 0.9rem;
+}
+
+/* Credit Link */
+.credit {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.credit a {
+  color: #00ffc6;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .col-left,
+  .col-right {
+    padding: 30px;
+    text-align: center;
+  }
+
+  .login-text .btn {
+    width: 100%;
+  }
+}
